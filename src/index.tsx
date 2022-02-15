@@ -1,20 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import { Home } from './routes';
 import reportWebVitals from './reportWebVitals';
 
+const queryClient = new QueryClient();
+
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route element={<Home />} index />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route element={<Home />} index />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

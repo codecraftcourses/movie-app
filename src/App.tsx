@@ -1,11 +1,17 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import { useConfiguration } from './hooks';
+import { Main } from './components';
 
 function App() {
+  const { data } = useConfiguration();
+
+  if (!data) return null;
+
   return (
-    <main>
+    <Main>
       <Outlet />
-    </main>
+    </Main>
   );
 }
 
