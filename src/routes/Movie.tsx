@@ -21,7 +21,7 @@ function Movie() {
   if (!data) return null;
 
   return (
-    <div className="grid grid-cols-1 gap-8 md:grid-cols-[20rem,1fr]">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-[20rem,1fr] md:gap-8">
       <Fade>
         <Poster movie={data} />
       </Fade>
