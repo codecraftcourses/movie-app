@@ -9,7 +9,7 @@ function Movies({ loading, hasNextPage, onLoadMore, pages }: MoviesProps) {
     loading,
     hasNextPage,
     onLoadMore,
-    rootMargin: '0px 0px 320px 0px',
+    rootMargin: '0px 0px 25% 0px',
   });
 
   return (
