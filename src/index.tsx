@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import {
@@ -22,6 +22,7 @@ ReactDOM.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
+            <Route element={<Navigate to="/movies/popular" />} index />
             <Route path="movies" element={<Movies />}>
               <Route path="popular" element={<Popular />} />
               <Route path="top-rated" element={<TopRated />} />
