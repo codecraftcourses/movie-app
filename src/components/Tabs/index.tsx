@@ -10,9 +10,12 @@ function Tabs({ tabs }: TabsProps) {
         {tabs.map((tab) => (
           <Tab
             className={({ selected }) =>
-              classNames('whitespace-nowrap text-2xl font-semibold', {
-                'text-zinc-400': !selected,
-              })
+              classNames(
+                'whitespace-nowrap text-2xl font-semibold focus:ring-0',
+                {
+                  'text-zinc-400': !selected,
+                }
+              )
             }
             key={tab.title}
           >
