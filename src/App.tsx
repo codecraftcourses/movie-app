@@ -1,18 +1,14 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import { useConfiguration } from './hooks';
-import { Main } from './components';
+import { Loader, Main } from './components';
 
 function App() {
-  const { data } = useConfiguration();
+  const { data, isLoading } = useConfiguration();
 
   if (!data) return null;
 
-  return (
-    <Main>
-      <Outlet />
-    </Main>
-  );
+  return <Main>{isLoading ? <Loader /> : <Outlet />}</Main>;
 }
 
 export default App;

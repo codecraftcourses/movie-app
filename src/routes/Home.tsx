@@ -1,9 +1,11 @@
 import React from 'react';
 import { usePopularMovies } from '../hooks';
-import { Movies } from '../components';
+import { Loader, Movies } from '../components';
 
 function Home() {
-  const { data } = usePopularMovies();
+  const { isLoading, data } = usePopularMovies();
+
+  if (isLoading) return <Loader />;
 
   if (!data) return null;
 
