@@ -5,3 +5,4 @@ export type { default as Icon } from './Icon';
 export type { default as Images } from './Images';
 export type { default as Movie } from './Movie';
 export type { default as Movies } from './Movies';
+export type { default as Tab } from './Tab';

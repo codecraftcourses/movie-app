@@ -3,11 +3,11 @@ import type { AxiosResponse, AxiosError } from 'axios';
 import type { Movies } from '../types';
 import { axios } from '../lib';
 
-const usePopularMovies = () =>
+const useNowPlayingMovies = () =>
   useQuery<AxiosResponse<Movies>, AxiosError, Movies>(
-    'popular-movies',
+    'now-playing-movies',
     async () => {
-      const data = await axios.get('/movie/popular');
+      const data = await axios.get('/movie/now_playing');
 
       return data;
     },
@@ -16,4 +16,4 @@ const usePopularMovies = () =>
     }
   );
 
-export default usePopularMovies;
+export default useNowPlayingMovies;
