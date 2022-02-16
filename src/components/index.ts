@@ -1,5 +1,6 @@
 export { default as Badge } from './Badge';
 export { default as Button } from './Button';
+export { default as Fade } from './Fade';
 export { default as Genres } from './Genres';
 export { default as Icon } from './Icon';
 export { default as Loader } from './Loader';

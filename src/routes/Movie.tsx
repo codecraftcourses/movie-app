@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useMovie } from '../hooks';
 import {
   Loader,
+  Fade,
   Poster,
   Rating,
   ReleaseDate,
@@ -21,7 +22,9 @@ function Movie() {
 
   return (
     <div className="grid grid-cols-1 gap-8 md:grid-cols-[20rem,1fr]">
-      <Poster movie={data} />
+      <Fade>
+        <Poster movie={data} />
+      </Fade>
       <div className="space-y-4">
         <h1>{data.title}</h1>
         <div className="flex flex-wrap gap-2">
