@@ -11,7 +11,7 @@ function Poster({ movie }: PosterProps) {
   if (!data) return null;
 
   const secureBaseUrl = data.images.secure_base_url;
-  const posterSize = data.images.poster_sizes[3];
+  const posterSize = data.images.poster_sizes[4];
 
   return (
     <img
