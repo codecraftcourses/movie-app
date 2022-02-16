@@ -19,8 +19,6 @@ function Movie() {
 
   if (!data) return null;
 
-  console.log('MOVIE: ', data);
-
   return (
     <div className="grid grid-cols-1 gap-8 md:grid-cols-[20rem,1fr]">
       <Poster movie={data} />
