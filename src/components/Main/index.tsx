@@ -1,8 +1,13 @@
 import React from 'react';
+import classNames from 'classnames';
 import type MainProps from './MainProps';
 
-function Main({ children }: MainProps) {
-  return <main className="container space-y-4 py-4 md:py-8">{children}</main>;
+function Main({ className, children }: MainProps) {
+  return (
+    <main className={classNames('space-y-4 p-4 md:p-8', className)}>
+      {children}
+    </main>
+  );
 }
 
 export default Main;

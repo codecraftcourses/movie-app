@@ -4,7 +4,14 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import { Home, Movie } from './routes';
+import {
+  Movies,
+  Popular,
+  TopRated,
+  NowPlaying,
+  Upcoming,
+  Movie,
+} from './routes';
 import reportWebVitals from './reportWebVitals';
 
 const queryClient = new QueryClient();
@@ -15,8 +22,13 @@ ReactDOM.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
-            <Route element={<Home />} index />
-            <Route path="/movie/:id" element={<Movie />} />
+            <Route path="movies" element={<Movies />}>
+              <Route path="popular" element={<Popular />} />
+              <Route path="top-rated" element={<TopRated />} />
+              <Route path="now-playing" element={<NowPlaying />} />
+              <Route path="upcoming" element={<Upcoming />} />
+            </Route>
+            <Route path="movie/:id" element={<Movie />} />
           </Route>
         </Routes>
       </BrowserRouter>
