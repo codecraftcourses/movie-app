@@ -9,6 +9,7 @@ type Movie = {
   genres: Genre[];
   runtime: number;
   overview: string;
+  homepage: string;
 };
 
 export default Movie;

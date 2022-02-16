@@ -8,6 +8,7 @@ import {
   ReleaseDate,
   Genres,
   Runtime,
+  Button,
 } from '../components';
 
 function Movie() {
@@ -18,8 +19,10 @@ function Movie() {
 
   if (!data) return null;
 
+  console.log('MOVIE: ', data);
+
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-[20rem,1fr]">
+    <div className="grid grid-cols-1 gap-8 md:grid-cols-[20rem,1fr]">
       <Poster movie={data} />
       <div className="space-y-4">
         <h1>{data.title}</h1>
@@ -33,6 +36,9 @@ function Movie() {
           <h2>Overview</h2>
           <p>{data.overview}</p>
         </div>
+        <Button href={data.homepage} icon="external-link">
+          Go to Website
+        </Button>
       </div>
     </div>
   );
