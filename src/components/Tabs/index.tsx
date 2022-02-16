@@ -11,7 +11,7 @@ function Tabs({ tabs }: TabsProps) {
           <Tab
             className={({ selected }) =>
               classNames(
-                'whitespace-nowrap text-2xl font-semibold focus:outline-none focus:ring-0',
+                'whitespace-nowrap text-2xl font-semibold focus:outline-none',
                 {
                   'text-zinc-400': !selected,
                 }
