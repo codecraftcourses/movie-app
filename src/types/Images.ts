@@ -1,5 +1,5 @@
 type Images = {
-  base_url: string;
+  secure_base_url: string;
   poster_sizes: string[];
 };
 

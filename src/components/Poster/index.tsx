@@ -10,13 +10,13 @@ function Poster({ movie }: PosterProps) {
 
   if (!data) return null;
 
-  const baseUrl = data.images.base_url;
+  const secureBaseUrl = data.images.secure_base_url;
   const posterSize = data.images.poster_sizes[3];
 
   return (
     <img
       className="w-full rounded-lg"
-      src={`${baseUrl}${posterSize}${movie.poster_path}`}
+      src={`${secureBaseUrl}${posterSize}${movie.poster_path}`}
       alt={movie.title}
     />
   );
