@@ -1,4 +1,11 @@
+export { default as Badge } from './Badge';
+export { default as Genres } from './Genres';
+export { default as Icon } from './Icon';
 export { default as Loader } from './Loader';
 export { default as Main } from './Main';
 export { default as Movie } from './Movie';
+export { default as Poster } from './Poster';
 export { default as Movies } from './Movies';
+export { default as Rating } from './Rating';
+export { default as ReleaseDate } from './ReleaseDate';
+export { default as Runtime } from './Runtime';

@@ -12,7 +12,7 @@ function Home() {
   return (
     <>
       <h1>Popular Movies</h1>
-      <Movies movies={data.data.results} />
+      <Movies movies={data.results} />
     </>
   );
 }

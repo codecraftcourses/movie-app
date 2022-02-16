@@ -1,11 +1,19 @@
 import { useQuery } from 'react-query';
+import type { AxiosResponse, AxiosError } from 'axios';
+import type { Configuration } from '../types';
 import { axios } from '../lib';
 
 const useConfiguration = () =>
-  useQuery('configuration', async () => {
-    const config = await axios.get('/configuration');
+  useQuery<AxiosResponse<Configuration>, AxiosError, Configuration>(
+    'configuration',
+    async () => {
+      const data = await axios.get('/configuration');
 
-    return config;
-  });
+      return data;
+    },
+    {
+      select: (data) => data.data,
+    }
+  );
 
 export default useConfiguration;

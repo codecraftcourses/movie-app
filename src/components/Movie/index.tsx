@@ -1,28 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import type MovieProps from './MovieProps';
-import { useConfiguration } from '../../hooks';
-import Loader from '../Loader';
+import Poster from '../Poster';
+import Rating from '../Rating';
+import ReleaseDate from '../ReleaseDate';
 
 function Movie({ movie }: MovieProps) {
-  const { isLoading, data } = useConfiguration();
-
-  if (isLoading) return <Loader />;
-
-  if (!data) return null;
-
-  const baseUrl = data.data.images.base_url;
-  const posterSize = data.data.images.poster_sizes[3];
-
   return (
     <li>
-      <Link className="block space-y-4" to={`/movie/${movie.id}`}>
-        <img
-          className="w-full rounded-lg"
-          src={`${baseUrl}${posterSize}${movie.poster_path}`}
-          alt={movie.title}
-        />
+      <Link className="block space-y-2" to={`/movie/${movie.id}`}>
+        <Poster movie={movie} />
         <h2>{movie.title}</h2>
+        <div className="flex gap-2">
+          <Rating movie={movie} />
+          <ReleaseDate movie={movie} />
+        </div>
       </Link>
     </li>
   );
