@@ -1,18 +1,25 @@
-import { useQuery } from 'react-query';
+import { useInfiniteQuery } from 'react-query';
 import type { AxiosResponse, AxiosError } from 'axios';
 import type { Movies } from '../types';
 import { axios } from '../lib';
 
 const useNowPlayingMovies = () =>
-  useQuery<AxiosResponse<Movies>, AxiosError, Movies>(
+  useInfiniteQuery<AxiosResponse<Movies>, AxiosError>(
     'now-playing-movies',
-    async () => {
-      const data = await axios.get('/movie/now_playing');
+    async ({ pageParam = 1 }) => {
+      const data = await axios.get('/movie/now_playing', {
+        params: {
+          page: pageParam,
+        },
+      });
 
       return data;
     },
     {
-      select: (data) => data.data,
+      getNextPageParam: (lastPage) =>
+        lastPage.data.page === lastPage.data.total_pages
+          ? undefined
+          : lastPage.data.page + 1,
     }
   );
 

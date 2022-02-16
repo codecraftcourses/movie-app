@@ -1,7 +1,11 @@
-import type { Movie } from '../../types';
+import type { AxiosResponse } from 'axios';
+import type { Movies } from '../../types';
 
 type MoviesProps = {
-  movies: Movie[];
+  loading: boolean;
+  hasNextPage: boolean;
+  onLoadMore: () => void;
+  pages: AxiosResponse<Movies>[];
 };
 
 export default MoviesProps;

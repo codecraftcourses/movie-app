@@ -4,13 +4,20 @@ import Loader from '../Loader';
 import Movies from '../Movies';
 
 function UpcomingMovies() {
-  const { isLoading, data } = useUpcomingMovies();
+  const { isLoading, hasNextPage, fetchNextPage, data } = useUpcomingMovies();
 
   if (isLoading) return <Loader />;
 
   if (!data) return null;
 
-  return <Movies movies={data.results} />;
+  return (
+    <Movies
+      loading={isLoading}
+      hasNextPage={Boolean(hasNextPage)}
+      onLoadMore={fetchNextPage}
+      pages={data.pages}
+    />
+  );
 }
 
 export default UpcomingMovies;
