@@ -1,14 +1,11 @@
 import React from 'react';
 import { useTopRatedMovies } from '../../hooks';
-import Loader from '../Loader';
 import Movies from '../Movies';
 
 function TopRatedMovies() {
-  const { isLoading, hasNextPage, fetchNextPage, data } = useTopRatedMovies();
+  const { isLoading, data, hasNextPage, fetchNextPage } = useTopRatedMovies();
 
-  if (isLoading) return <Loader />;
-
-  if (!data) return null;
+  if (isLoading || !data) return null;
 
   return (
     <Movies

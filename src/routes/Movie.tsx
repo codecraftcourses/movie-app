@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { useMovie } from '../hooks';
 import {
   Main,
-  Loader,
   Fade,
   Poster,
   Rating,
@@ -17,14 +16,7 @@ function Movie() {
   const { id } = useParams();
   const { isLoading, data } = useMovie(id!);
 
-  if (isLoading)
-    return (
-      <Main>
-        <Loader />
-      </Main>
-    );
-
-  if (!data) return null;
+  if (isLoading || !data) return null;
 
   return (
     <Main>

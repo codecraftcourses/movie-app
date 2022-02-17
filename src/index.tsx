@@ -22,8 +22,9 @@ ReactDOM.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
-            <Route element={<Navigate to="/movies/popular" />} index />
+            <Route element={<Navigate to="movies/popular" />} index />
             <Route path="movies" element={<Movies />}>
+              <Route element={<Navigate to="popular" />} index />
               <Route path="popular" element={<Popular />} />
               <Route path="top-rated" element={<TopRated />} />
               <Route path="now-playing" element={<NowPlaying />} />

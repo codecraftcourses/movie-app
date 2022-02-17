@@ -22,7 +22,7 @@ function Movies({ loading, hasNextPage, onLoadMore, pages }: MoviesProps) {
         </Fragment>
       ))}
       {(loading || hasNextPage) && (
-        <li ref={sentryRef}>
+        <li className="col-span-4" ref={sentryRef}>
           <Loader />
         </li>
       )}

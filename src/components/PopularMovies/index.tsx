@@ -1,14 +1,11 @@
 import React from 'react';
 import { usePopularMovies } from '../../hooks';
-import Loader from '../Loader';
 import Movies from '../Movies';
 
 function PopularMovies() {
-  const { isLoading, hasNextPage, fetchNextPage, data } = usePopularMovies();
+  const { isLoading, data, hasNextPage, fetchNextPage } = usePopularMovies();
 
-  if (isLoading) return <Loader />;
-
-  if (!data) return null;
+  if (isLoading || !data) return null;
 
   return (
     <Movies

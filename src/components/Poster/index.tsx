@@ -1,14 +1,11 @@
 import React from 'react';
 import type PosterProps from './PosterProps';
 import { useConfiguration } from '../../hooks';
-import Loader from '../Loader';
 
 function Poster({ movie }: PosterProps) {
   const { isLoading, data } = useConfiguration();
 
-  if (isLoading) return <Loader />;
-
-  if (!data) return null;
+  if (isLoading || !data) return null;
 
   const secureBaseUrl = data.images.secure_base_url;
   const posterSize = data.images.poster_sizes[4];
